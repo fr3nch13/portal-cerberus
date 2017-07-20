@@ -1,0 +1,12 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+	RewriteEngine	on
+#	RewriteCond		%{HTTPS} off
+#	RewriteRule		(.*)	https://%{HTTP_HOST}%{REQUEST_URI}	[R,L] 
+	
+	RewriteRule		^$		app/webroot/	[L]
+	RewriteRule		(.*)	app/webroot/$1	[L]
+</IfModule>
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
